@@ -20,7 +20,7 @@ class DevopsApplicationTests {
 
 	@Test
 	public void testImpuesto() throws Exception {
-		assertEquals(0.135f, util.getImpuesto(sueldo), 0.001);
+		assertEquals(0.08f, util.getImpuesto(sueldo));
 	}
 
 	@Test
