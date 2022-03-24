@@ -1,0 +1,54 @@
+<div class="container">
+  <div [formGroup]="miFormulario">
+    <div class="row mb-3">
+      <label class="col-form-label">Opciones</label>
+      <div class="col-sm-4">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="DxC" id="radioDxC" formControlName="opcion"
+            (change)="menu()">
+          <label for="radioDxc">Conocer el 10% que se obtendría</label>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="Saldo" id="radioSaldo" formControlName="opcion"
+            (change)="menu()">
+          <label for="radioSaldo">Conocer el saldo restante que quedará luego de un posible retiro</label>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" value="Impuesto" id="radioImpuesto" formControlName="opcion"
+            (change)="menu()">
+          <label for="radioImpuesto">Conocer el impuesto asociado al retirar el monto máximo.</label>
+        </div>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <p *ngIf="verSueldo">
+        <label for="sueldo">Sueldo</label>
+        <input type="number" class="form-control" formControlName="sueldo">
+        <span class="form-text text-danger" *ngIf="campoEsValido('sueldo')">El sueldo debe ser 0 o mayor </span>
+      </p>
+
+      <p *ngIf="verAhorro">
+        <label for="ahorro">Ahorro</label>
+        <input type="number" class="form-control" formControlName="ahorro">
+        <span class="form-text text-danger" *ngIf="campoEsValido('ahorro')">El ahorro debe ser 0 o mayor </span>
+      </p>
+
+      <div class="row" *ngIf="verBtonoes">
+        <div class="col">
+          <button class="btn btn-primary" (click)="consultar()">Consultar</button>
+        </div>
+        <div class="col">
+          <button class="btn btn-primary" (click)="limpiar()">limpiar</button>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <h2 class="text-success" *ngIf="respuesta">{{mensajeRespuesta}} {{valor}}</h2>
+      </div>
+    </div>
+  </div>
+
+</div>
