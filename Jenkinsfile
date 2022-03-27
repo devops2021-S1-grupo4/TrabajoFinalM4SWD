@@ -19,24 +19,23 @@ pipeline {
             }
         }
 
-        stage("Paso 6 Run: Levantar Springboot APP"){
+        stage("Levantar Springboot APP"){
             steps {
                 sh 'mvn spring-boot:run &'
                 sh 'nohup bash java -jar Lab4.jar & >/dev/null'
             }
         }
-        stage("Paso 7 Curl: Dormir(Esperar 40sg) "){
+        stage("Dormir(Esperar 40sg) "){
             steps {
-               sh "sleep 40 &"
-               sh "newman run ./src/test/postman/Dxc.postman_collection.json"
+               sh "sleep 40"
             }
         }
 
-        // stage('Test WS -postman') {
-        //     steps {
-                
-        //     }
-        // }
+        stage('Test WS -postman') {
+            steps {
+                sh "newman run ./src/test/postman/Dxc.postman_collection.json"
+            }
+        }
 
         // stage('Test Jmeter') {
         //     steps {
