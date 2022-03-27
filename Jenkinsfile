@@ -37,10 +37,10 @@ pipeline {
             }
         }
 
-        // stage('Test Jmeter') {
-        //     steps {
-        //         sh "mvn verify -Pperformance"
-        //     }
-        // }
+        stage('Test Jmeter') {
+            steps {
+                sh "mvn verify -Pperformance"
+            }
+        }
     }
 }
