@@ -24,6 +24,18 @@ pipeline {
             }
         }
 
+        stage("Paso 6 Run: Levantar Springboot APP"){
+            steps {
+                sh 'mvn spring-boot:run'
+               // sh 'nohup bash java -jar DevOpsUsach2020-0.0.1.jar & >/dev/null'
+            }
+        }
+        stage("Paso 7 Curl: Dormir(Esperar 40sg) "){
+            steps {
+               sh "sleep 40 "
+            }
+        }
+
         stage('Test WS -postman') {
             steps {
                 sh "newman run ./src/test/postman/Dxc.postman_collection.json"
