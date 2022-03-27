@@ -27,15 +27,16 @@ pipeline {
         }
         stage("Paso 7 Curl: Dormir(Esperar 40sg) "){
             steps {
-               sh "sleep 40"
+               sh "sleep 40 &"
+               sh "newman run ./src/test/postman/Dxc.postman_collection.json"
             }
         }
 
-        stage('Test WS -postman') {
-            steps {
-                sh "newman run ./src/test/postman/Dxc.postman_collection.json"
-            }
-        }
+        // stage('Test WS -postman') {
+        //     steps {
+                
+        //     }
+        // }
 
         // stage('Test Jmeter') {
         //     steps {
