@@ -26,7 +26,7 @@ pipeline {
 
         stage('Test WS -postman') {
             steps {
-                sh "newman run Dxc.postman_collection.json"
+                sh "newman run ./src/test/postman/Dxc.postman_collection.json"
             }
         }
 
