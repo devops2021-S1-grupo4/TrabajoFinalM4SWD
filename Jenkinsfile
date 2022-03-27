@@ -25,11 +25,11 @@ pipeline {
                 sh 'nohup bash java -jar Lab4.jar & >/dev/null'
             }
         }
-        // stage("Paso 7 Curl: Dormir(Esperar 40sg) "){
-        //     steps {
-        //        sh "sleep 40 "
-        //     }
-        // }
+        stage("Paso 7 Curl: Dormir(Esperar 40sg) "){
+            steps {
+               sh "sleep 40 "
+            }
+        }
 
         stage('Test WS -postman') {
             steps {
