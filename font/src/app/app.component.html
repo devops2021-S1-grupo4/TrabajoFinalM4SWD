@@ -27,13 +27,13 @@
     <div class="mb-3 row">
       <p *ngIf="verSueldo">
         <label for="sueldo">Sueldo</label>
-        <input type="number" class="form-control" formControlName="sueldo">
+        <input type="number" class="form-control" formControlName="sueldo" id="sueldoInput">
         <span class="form-text text-danger" *ngIf="campoEsValido('sueldo')">El sueldo debe ser 0 o mayor </span>
       </p>
 
       <p *ngIf="verAhorro">
         <label for="ahorro">Ahorro</label>
-        <input type="number" class="form-control" formControlName="ahorro">
+        <input type="number" class="form-control" formControlName="ahorro" id="ahorroInput">
         <span class="form-text text-danger" *ngIf="campoEsValido('ahorro')">El ahorro debe ser 0 o mayor </span>
       </p>
 
@@ -46,7 +46,7 @@
         </div>
       </div>
       <div class="row mb-3">
-        <h2 class="text-success" *ngIf="respuesta">{{mensajeRespuesta}} {{valor}}</h2>
+        <h2 class="text-success" *ngIf="respuesta" id="respuestaMensaje">{{mensajeRespuesta}} {{valor}}</h2>
       </div>
     </div>
   </div>

@@ -21,8 +21,8 @@ export class AppComponent {
 
   miFormulario: FormGroup = this.fb.group({
     opcion: ['', [Validators.required]],
-    sueldo: [1600000, [Validators.required, Validators.min(0)]],
-    ahorro: [25000000, [Validators.required, Validators.min(0)]]
+    sueldo: [, [Validators.required, Validators.min(0)]],
+    ahorro: [, [Validators.required, Validators.min(0)]]
   })
 
   constructor(
