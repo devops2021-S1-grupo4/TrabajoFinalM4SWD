@@ -11,7 +11,7 @@ export class BackService {
 
   getDxC(sueldo: string, ahorro: string) {
     let queryParams = new HttpParams();
-    let url = 'http://localhost:8080/rest/msdxc/dxc';
+    let url = 'http://localhost:8181/rest/msdxc/dxc';
     queryParams = queryParams.append("sueldo", sueldo);
     queryParams = queryParams.append("ahorro", ahorro);
     return this.http.get(url, { params: queryParams });
@@ -19,13 +19,13 @@ export class BackService {
 
   getSaldo(ahorro: string) {
     let queryParams = new HttpParams();
-    let url = 'http://localhost:8080/rest/msdxc/saldoahorro';
+    let url = 'http://localhost:8181/rest/msdxc/saldoahorro';
     queryParams = queryParams.append("ahorro", ahorro);
     return this.http.get(url, { params: queryParams });
   }
 
   getImpuesto(sueldo: string) {
-    let url = 'http://localhost:8080/rest/msdxc/impuesto';
+    let url = 'http://localhost:8181/rest/msdxc/impuesto';
     let queryParams = new HttpParams();
     queryParams = queryParams.append("sueldo", sueldo);
     return this.http.get(url, { params: queryParams });
