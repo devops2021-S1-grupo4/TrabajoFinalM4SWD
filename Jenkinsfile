@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('Test ubicacion') {
+            steps {
+                sh "pwd"
+            }
+        }
         stage('Clean') {
             steps {
                 sh "mvn clean"
