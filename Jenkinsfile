@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('Test ubicacion') {
-            steps {
-                sh "pwd"
-            }
-        }
         stage('Clean') {
             steps {
                 sh "mvn clean"
@@ -26,8 +21,8 @@ pipeline {
 
         stage("Paso 6 Run: Levantar Springboot APP"){
             steps {
-                sh 'mvn spring-boot:run'
-               // sh 'nohup bash java -jar DevOpsUsach2020-0.0.1.jar & >/dev/null'
+                sh 'mvn spring-boot:run &'
+                sh 'nohup bash java -jar Lab4.jar & >/dev/null'
             }
         }
         stage("Paso 7 Curl: Dormir(Esperar 40sg) "){
