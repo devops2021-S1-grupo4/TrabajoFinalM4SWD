@@ -25,7 +25,7 @@ public class SeleniumTest {
     }
 
     @Test
-    public void diez() {
+    public void dxc() {
         String mensajeRespuesta;
 
         driver.findElement(By.id("radioDxC")).click();
@@ -39,6 +39,24 @@ public class SeleniumTest {
 
         mensajeRespuesta = driver.findElement(By.id("respuestaMensaje")).getText();
         assertEquals("El 10% que se obtendría es 2500000", mensajeRespuesta);
+    }
+
+    
+    @Test
+    public void testDiezxciento_menor() {
+        String mensajeRespuesta;
+
+        driver.findElement(By.id("radioDxC")).click();
+        driver.findElement(By.cssSelector("p:nth-child(1) > .form-control")).click();
+        driver.findElement(By.id("sueldoInput")).sendKeys("600000");
+        driver.findElement(By.id("ahorroInput")).sendKeys("800000");
+        driver.findElement(By.cssSelector(".col:nth-child(1) > .btn")).click();
+
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 30);
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.id("respuestaMensaje"))).click();
+
+        mensajeRespuesta = driver.findElement(By.id("respuestaMensaje")).getText();
+        assertEquals("El 10% que se obtendría es 800000", mensajeRespuesta);
     }
 
     @Test
@@ -72,6 +90,22 @@ public class SeleniumTest {
 
         mensajeRespuesta = driver.findElement(By.id("respuestaMensaje")).getText();
         assertEquals("El impuesto asociado al retirar el monto máximo es 0.08", mensajeRespuesta);
+    }
+
+    @Test
+    public void testImpuestoborde() {
+        String mensajeRespuesta;
+
+        driver.findElement(By.id("radioImpuesto")).click();
+        driver.findElement(By.cssSelector("p:nth-child(1) > .form-control")).click();
+        driver.findElement(By.id("sueldoInput")).sendKeys("16794000");
+        driver.findElement(By.cssSelector(".col:nth-child(1) > .btn")).click();
+
+        WebDriverWait webDriverWait = new WebDriverWait(driver, 30);
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.id("respuestaMensaje"))).click();
+
+        mensajeRespuesta = driver.findElement(By.id("respuestaMensaje")).getText();
+        assertEquals("El impuesto asociado al retirar el monto máximo es 0.4", mensajeRespuesta);
     }
 
 }
